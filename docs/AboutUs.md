@@ -18,15 +18,15 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Sweatshop Worker
 
-### Jane Doe
+### William Scott Win
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/wincura.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](https://github.com/wincura)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+* Role: Developer
+* Responsibilities: OOP Logic
 
 ### Johnny Doe
 
