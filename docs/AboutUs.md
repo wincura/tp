@@ -9,6 +9,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
+### Neryss Ho
+
+<img src="images/nrysho.png" width="200px">
+
+[[github](https://github.com/nrysho)]
+[[portfolio](team/nrysho.md)]
+
+* Role: Developer
+* Responsibilities: UI
+
 ### Lim Zi Huan
 
 <img src="images/gluee003.png" width="200px">
