@@ -479,6 +479,19 @@ Priorities: High (must have) — `* * *`, Medium (nice to have) — `* *`, Low (
 
 ---
 
+## Non-Functional Requirements
+
+1. Should work on any mainstream OS (Windows, Linux, macOS) with Java 17 or above installed.
+2. Should be able to hold up to 1000 contacts and 200 tour packages without noticeable performance degradation during typical usage.
+3. A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should be able to complete most tasks faster using CLI commands than using the mouse.
+4. The application should respond to any single user command within 2 seconds under normal operating conditions.
+5. All contact and tour data must be persisted automatically after every command that modifies data, with no manual save step required.
+6. The application must be packaged as a single portable JAR file requiring no installation beyond Java 17.
+7. The application must function fully offline, with no dependence on external servers or internet connectivity.
+8. The application should be usable by a tour guide with no prior experience of CLI applications after reading the help page.
+
+---
+
 ### Glossary
 
 | Term | Definition |
