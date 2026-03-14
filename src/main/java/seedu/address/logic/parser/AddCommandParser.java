@@ -2,21 +2,33 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CLOSINGHOURS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ISHALAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_OPENINGHOURS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STARS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TYPE;
+//import static seedu.address.logic.parser.CliSyntax.TYPE_FNB;
+//import static seedu.address.logic.parser.CliSyntax.TYPE_ATTRACTION;
+//import static seedu.address.logic.parser.CliSyntax.TYPE_ACCOMMODATION;
 import static seedu.address.logic.parser.CliSyntax.TYPE_PERSON;
 
+import java.time.LocalTime;
 import java.util.Set;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.contact.Accommodation;
 import seedu.address.model.contact.Address;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Email;
+//import seedu.address.model.contact.Fnb;
+//import seedu.address.model.contact.Attraction;
+//import seedu.address.model.contact.Accommodation;
 import seedu.address.model.contact.Name;
 import seedu.address.model.contact.Person;
 import seedu.address.model.contact.Phone;
@@ -35,7 +47,8 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_TYPE, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_ADDRESS, PREFIX_TAG);
+                        PREFIX_ADDRESS, PREFIX_TAG, PREFIX_ISHALAL, PREFIX_OPENINGHOURS,
+                        PREFIX_CLOSINGHOURS, PREFIX_STARS);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_TYPE, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -49,11 +62,18 @@ public class AddCommandParser implements Parser<AddCommand> {
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        Boolean isHalal = ParserUtil.parseHalalStatus(argMultimap.getValue(PREFIX_ISHALAL).get());
+        LocalTime openingHours = ParserUtil.parseOpeningHours(argMultimap.getValue(PREFIX_OPENINGHOURS).get());
+        LocalTime closingHours = ParserUtil.parseClosingHours(argMultimap.getValue(PREFIX_CLOSINGHOURS).get());
+        Accommodation.AccommodationStar stars = ParserUtil.parseAccommodationStars(
+                argMultimap.getValue(PREFIX_STARS).get());
 
         Contact contact = null;
         if (type.equals(TYPE_PERSON)) {
             contact = new Person(name, phone, email, address, tagList);
         }
+
+        // todo the rest of the logic for this part
 
         return new AddCommand(contact);
     }

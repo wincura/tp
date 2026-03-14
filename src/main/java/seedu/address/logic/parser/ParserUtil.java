@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.VALID_TYPES;
 
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.contact.Accommodation;
 import seedu.address.model.contact.Address;
 import seedu.address.model.contact.Email;
 import seedu.address.model.contact.Name;
@@ -135,5 +137,41 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a Halal status.
+     * todo: complete JavaDoc comment
+     */
+    public static Boolean parseHalalStatus(String isHalal) throws ParseException {
+        // todo: implementation of this method and removal of placeholder value
+        return Boolean.TRUE;
+    }
+
+    /**
+     * Parses an opening hour.
+     * todo: complete JavaDoc comment
+     */
+    public static LocalTime parseOpeningHours(String openingHours) {
+        // todo: implementation of this method and removal of placeholder value
+        return LocalTime.of(0, 0, 0);
+    }
+
+    /**
+     * Parses a closing hour.
+     * todo: complete JavaDoc comment
+     */
+    public static LocalTime parseClosingHours(String closingHours) {
+        // todo: implementation of this method and removal of placeholder value
+        return LocalTime.of(0, 0, 0);
+    }
+
+    /**
+     * Parses a number of accommodation stars.
+     * todo: complete JavaDoc comment
+     */
+    public static Accommodation.AccommodationStar parseAccommodationStars(String stars) {
+        // todo: implementation of this method and removal of placeholder value
+        return Accommodation.AccommodationStar.THREE_STAR;
     }
 }
