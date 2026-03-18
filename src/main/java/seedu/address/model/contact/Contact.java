@@ -78,7 +78,7 @@ public abstract class Contact {
      * Returns an immutable tour set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Tour> getTours () {
+    public Set<Tour> getTours() {
         return Collections.unmodifiableSet(tours);
     }
 
