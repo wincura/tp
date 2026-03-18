@@ -1,9 +1,10 @@
 package seedu.address.testutil;
 
+import java.util.Collections;
+
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Person;
 
-import java.util.Collections;
 
 /**
  * A utility class to help with building Person objects.
