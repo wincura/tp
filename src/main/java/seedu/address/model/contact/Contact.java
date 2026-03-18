@@ -2,10 +2,7 @@ package seedu.address.model.contact;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.commands.EditCommand.EditContactDescriptor;
@@ -78,7 +75,7 @@ public abstract class Contact {
      * Returns an immutable tour set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Tour> getTours() {
+    public Set<Tour> getTours () {
         return Collections.unmodifiableSet(tours);
     }
 
@@ -104,6 +101,8 @@ public abstract class Contact {
      * Returns the type of contact.
      */
     public abstract String getType();
+
+    public abstract List<String> getTypeSpecificDetails();
 
     /**
      * Returns true if both contacts have the same identity and data fields.

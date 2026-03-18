@@ -185,6 +185,14 @@ public class ParserUtil {
         return new ClosingHour(trimmedClosingHour);
     }
 
+    public static Set<Tour> parseTours(List<String> allValues) {
+        Set<Tour> tourSet = new HashSet<>();
+        for (String tourName : allValues) {
+            tourSet.add(new Tour(tourName));
+        }
+        return tourSet;
+    }
+
     /**
      * Parses a {@code Collection<String>} of tours into a {@code Set<Tour>}.
      */

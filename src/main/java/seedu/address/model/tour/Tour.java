@@ -6,7 +6,7 @@ import java.util.Objects;
  * Represents a tour package, which is identified by its String name
  */
 public class Tour {
-    private String name = "";
+    String name = "";
 
     /**
     * Constructs a {@code Tour} with the given name.
