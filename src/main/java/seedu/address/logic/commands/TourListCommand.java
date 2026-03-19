@@ -1,12 +1,9 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-
-import java.util.HashSet;
-import java.util.Set;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TOURS;
 
 import seedu.address.model.Model;
-import seedu.address.model.contact.Contact;
 import seedu.address.model.tour.Tour;
 
 /**
@@ -21,13 +18,13 @@ public class TourListCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        Set<Tour> allTours = new HashSet<>();
-        for (Contact contact : model.getAddressBook().getContactList()) {
-            allTours.addAll(contact.getTours());
-        }
+        model.updateFilteredTourList(PREDICATE_SHOW_ALL_TOURS);
+
         StringBuilder sb = new StringBuilder(MESSAGE_SUCCESS + ":\n");
-        for (Tour tour : allTours) {
-            sb.append(tour.getTourName()).append("\n");
+        int index = 1;
+        for (Tour tour : model.getFilteredTourList()) {
+            sb.append(index).append(". ").append(tour.getTourName()).append("\n");
+            index++;
         }
         return new CommandResult(sb.toString());
     }
